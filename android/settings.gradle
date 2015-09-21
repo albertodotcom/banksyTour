@@ -1,0 +1,3 @@
+rootProject.name = 'banksyTour'
+
+include ':app'
