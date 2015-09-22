@@ -8,7 +8,11 @@ let _artworks = [
   {
     title: 'Balloon Girl',
     img: 'http://www.stencilrevolution.com/photopost/2012/09/Girl-with-a-Balloon-by-Banksy.jpg',
-  }
+  },
+  {
+    title: 'Shop Until You Drop',
+    img: 'https://upload.wikimedia.org/wikipedia/commons/thumb/7/7f/Shop_Until_You_Drop_by_Banksy.JPG/1280px-Shop_Until_You_Drop_by_Banksy.JPG',
+  },
 ];
 
 class ArtworksStore extends BaseStore {
