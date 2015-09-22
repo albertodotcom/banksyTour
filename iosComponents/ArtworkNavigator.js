@@ -16,9 +16,11 @@ let ArtworkNavigator = React.createClass({
         initialRoute={{
           component: ArtworkList,
           title: 'Artworks',
-          passProps: {},
+          passProps: {
+            artworks: this.props.artworks
+          },
         }}
-      />
+          />
     );
   }
 });

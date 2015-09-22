@@ -27,7 +27,7 @@ var MapViewExample = React.createClass({
         <MapView
           style={styles.map}
           region={this.state.mapRegion}
-          annotations={this.state.annotations || undefined}
+          annotations={this.props.annotations}
           showsUserLocation={true}
         />
       </View>

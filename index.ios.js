@@ -7,8 +7,13 @@ let {
   TabBarIOS,
 } = React;
 
+let ArtworksStore = require('./common/stores/ArtworksStore');
 let ArtworkNavigator = require('./iosComponents/ArtworkNavigator');
 let ArtworkMap = require('./iosComponents/ArtworksMap');
+
+function getArtworks() {
+  return ArtworksStore.getArtworks();
+}
 
 let BanskyTour = React.createClass({
   statics: {
@@ -21,8 +26,7 @@ let BanskyTour = React.createClass({
   getInitialState: function() {
     return {
       selectedTab: 'list',
-      notifCount: 0,
-      presses: 0,
+      artworks: getArtworks().data,
     };
   },
 
@@ -41,7 +45,7 @@ let BanskyTour = React.createClass({
               selectedTab: 'list',
             });
           }}>
-          <ArtworkNavigator />
+          <ArtworkNavigator artworks={this.state.artworks} />
         </TabBarIOS.Item>
 
         <TabBarIOS.Item

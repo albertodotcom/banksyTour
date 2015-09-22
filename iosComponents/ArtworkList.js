@@ -6,39 +6,15 @@ let {
   ListView,
 } = React;
 
-let ArtworksStore = require('../common/stores/ArtworksStore');
 let ArtworkRowView = require('./ArtworkRowView');
 
-function getArtworks() {
-  return ArtworksStore.getArtworks();
-}
-
 let ArtworkList = React.createClass({
-  getInitialState() {
-    let ds = new ListView.DataSource({rowHasChanged: (r1, r2) => r1 !== r2});
-    return {
-      dataSource: ds.cloneWithRows(getArtworks().data),
-    };
-  },
-
-  componentDidMount() {
-    ArtworksStore.addChangeListener(this._onChange);
-  },
-
-  componentWillUnmount() {
-    ArtworksStore.removeChangeListener(this._onChange);
-  },
-
-  _onChange() {
-    this.setState({
-      dataSource: this.state.dataSource.cloneWithRows(getArtworks().data)
-    });
-  },
 
   render() {
+    let ds = new ListView.DataSource({rowHasChanged: (r1, r2) => r1 !== r2});
     return (
       <ListView
-        dataSource={this.state.dataSource}
+        dataSource={ds.cloneWithRows(this.props.artworks)}
         renderRow={this.renderMovie}
         style={styles.listView}
       />
