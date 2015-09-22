@@ -6,7 +6,10 @@ let {
   Text,
   View,
   Image,
+  TouchableHighlight,
 } = React;
+
+let ArtworkDetails = require('./ArtworkDetails');
 
 let PropTypes = React.PropTypes;
 
@@ -20,17 +23,29 @@ let ArtworkRowView = React.createClass({
 
   render() {
     return (
-      <View style={styles.container}>
-        <Image
-          source={{uri: this.props.artwork.img}}
-          style={styles.thumbnail}
-        />
-        <View style={styles.rightContainer}>
-          <Text style={styles.title}>{this.props.artwork.title}</Text>
+      <TouchableHighlight onPress={this._onPressButton.bind(this, this.props.artwork)}>
+        <View style={styles.container}>
+          <Image
+            source={{uri: this.props.artwork.img}}
+            style={styles.thumbnail}
+          />
+          <View style={styles.rightContainer}>
+            <Text style={styles.title}>{this.props.artwork.title}</Text>
+          </View>
         </View>
-      </View>
+      </TouchableHighlight>
     );
   },
+
+  _onPressButton(artwork) {
+    this.props.navigator.push({
+      title: artwork.title,
+      component: ArtworkDetails,
+      passProps: {
+        artwork: artwork,
+      },
+    });
+  }
 
 });
 
