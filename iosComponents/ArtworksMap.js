@@ -17,17 +17,24 @@ var MapViewExample = React.createClass({
         latitudeDelta: 0.2,
         longitudeDelta: 0.2,
       },
-      annotations: null
     };
   },
 
   render() {
+    let formatAnnotation = this.props.artworks.map((artwork) => {
+      return {
+        title: artwork.title,
+        latitude: artwork.location.latitude,
+        longitude: artwork.location.longitude,
+      };
+    });
+
     return (
       <View style={{flex: 1}}>
         <MapView
           style={styles.map}
           region={this.state.mapRegion}
-          annotations={this.props.annotations}
+          annotations={formatAnnotation}
           showsUserLocation={true}
         />
       </View>

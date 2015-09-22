@@ -57,7 +57,7 @@ let BanskyTour = React.createClass({
               selectedTab: 'map',
             });
           }}>
-          <ArtworkMap />
+          <ArtworkMap artworks={this.state.artworks} />
         </TabBarIOS.Item>
 
       </TabBarIOS>

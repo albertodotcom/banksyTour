@@ -10,7 +10,7 @@ let _artworks = [
     img: 'http://www.stencilrevolution.com/photopost/2012/09/Girl-with-a-Balloon-by-Banksy.jpg',
     location: {
       latitude: 51.5104404,
-      longtitude: -0.1538842,
+      longitude: -0.1538842,
     },
   },
   {
@@ -18,7 +18,7 @@ let _artworks = [
     img: 'https://upload.wikimedia.org/wikipedia/commons/thumb/7/7f/Shop_Until_You_Drop_by_Banksy.JPG/1280px-Shop_Until_You_Drop_by_Banksy.JPG',
     location: {
       latitude: 51.5104404,
-      longtitude: -0.1438842,
+      longitude: -0.1438842,
     },
   },
 ];
