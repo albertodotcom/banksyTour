@@ -25,7 +25,7 @@ let BanskyTour = React.createClass({
 
   getInitialState: function() {
     return {
-      selectedTab: 'list',
+      selectedTab: 'map',
       artworks: getArtworks().data,
     };
   },

@@ -26,6 +26,7 @@ var MapViewExample = React.createClass({
         title: artwork.title,
         latitude: artwork.location.latitude,
         longitude: artwork.location.longitude,
+        hasRightCallout: true
       };
     });
 
