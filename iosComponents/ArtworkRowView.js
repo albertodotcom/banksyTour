@@ -25,9 +25,9 @@ let ArtworkRowView = React.createClass({
         <View style={styles.container}>
           <Image
             source={{uri: this.props.artwork.img}}
-            style={styles.thumbnail}
+            style={styles.image}
           />
-          <View style={styles.rightContainer}>
+        <View style={styles.description}>
             <Text style={styles.title}>{this.props.artwork.title}</Text>
           </View>
         </View>
@@ -47,21 +47,27 @@ let ArtworkRowView = React.createClass({
 let styles = StyleSheet.create({
   container: {
     flex: 1,
-    flexDirection: 'row',
-    justifyContent: 'center',
-    alignItems: 'center',
-    backgroundColor: '#F5FCFF',
+    flexDirection: 'column',
+    alignItems: 'stretch',
+    backgroundColor: '#272B31',
+    marginBottom: 20,
   },
-  rightContainer: {
+  description: {
     flex: 1,
   },
-  thumbnail: {
-    width: 53,
-    height: 81,
+  image: {
+    height: 210,
+    flex: 1,
+    resizeMode: 'cover',
   },
   title: {
     fontSize: 20,
-    textAlign: 'center',
+    textAlign: 'left',
+    color: '#FFFFFF',
+    paddingTop: 15,
+    paddingBottom: 15,
+    paddingLeft: 15,
+    paddingRight: 15,
   }
 });
 

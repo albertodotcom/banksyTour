@@ -3,11 +3,9 @@
 let React = require('react-native');
 let {
   AppRegistry,
-  StyleSheet,
   TabBarIOS,
   Navigator,
-  View,
-  Text,
+  StatusBarIOS,
 } = React;
 
 let ArtworksStore = require('./common/stores/ArtworksStore');
@@ -29,7 +27,7 @@ let BanskyTour = React.createClass({
 
   getInitialState: function() {
     return {
-      selectedTab: 'map',
+      selectedTab: 'list',
       artworks: getArtworks().data,
     };
   },
@@ -38,11 +36,13 @@ let BanskyTour = React.createClass({
     switch (route.id) {
     case 'tab-view':
       return (
-        <TabBarIOS navigator={navigator} >
+        <TabBarIOS
+          translucent={true}
+          navigator={navigator}>
 
           <TabBarIOS.Item
             title="Artworks"
-            systemIcon="more"
+            systemIcon="bookmarks"
             selected={this.state.selectedTab === 'list'}
             onPress={() => {
               this.setState({
@@ -69,13 +69,15 @@ let BanskyTour = React.createClass({
 
     case 'artwork-details':
       return (
-        <ArtworkDetails artwork={route.artwork} />
+        <ArtworkDetails artwork={route.artwork} navigator={navigator} />
       );
 
     }
   },
 
   render() {
+    StatusBarIOS.setStyle('light-content');
+
     return (
       <Navigator
         ref="navigator"
@@ -87,9 +89,6 @@ let BanskyTour = React.createClass({
       />
     );
   },
-});
-
-let styles = StyleSheet.create({
 });
 
 AppRegistry.registerComponent('banksyTour', () => BanskyTour);

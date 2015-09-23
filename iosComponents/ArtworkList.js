@@ -33,10 +33,7 @@ let ArtworkList = React.createClass({
 
 let styles = StyleSheet.create({
   listView: {
-    paddingTop: 20,
-    paddingLeft: 10,
-    paddingRight: 10,
-    backgroundColor: '#F5FCFF',
+    backgroundColor: '#1B1E22',
   },
 });
 

@@ -6,6 +6,8 @@ let {
   Text,
   View,
   Image,
+  ScrollView,
+  TouchableHighlight,
 } = React;
 
 let PropTypes = React.PropTypes;
@@ -18,15 +20,26 @@ let ArtworkDetails = React.createClass({
     }).isRequired
   },
 
+  _onPressButton() {
+    this.props.navigator.pop();
+  },
+
   render() {
     return (
       <View style={styles.container}>
-        <Image
-          source={{uri: this.props.artwork.img}}
-          style={styles.thumbnail}
-        />
-        <View style={styles.rightContainer}>
-          <Text style={styles.title}>{this.props.artwork.title}</Text>
+        <ScrollView style={styles.details}>
+          <Image
+            source={{uri: this.props.artwork.img}}
+            style={styles.thumbnail}
+          />
+          <View style={styles.rightContainer}>
+            <Text style={styles.title}>{this.props.artwork.title}</Text>
+          </View>
+        </ScrollView>
+        <View style={styles.top}>
+          <TouchableHighlight onPress={this._onPressButton}>
+            <Text>Back</Text>
+          </TouchableHighlight>
         </View>
       </View>
     );
@@ -37,10 +50,23 @@ let ArtworkDetails = React.createClass({
 let styles = StyleSheet.create({
   container: {
     flex: 1,
+    backgroundColor: '#FFFFFF',
+  },
+  top: {
+    flex: 1,
     flexDirection: 'row',
     justifyContent: 'center',
     alignItems: 'center',
-    backgroundColor: '#F5FCFF',
+    height: 65,
+    // backgroundColor: 'rgba(255,255,255,0.5)',
+    // position: 'absolute',
+    // top: 0,
+    // left: 0,
+    // right: 0,
+  },
+  details: {
+    flex: 1,
+    flexDirection: 'column',
     paddingTop: 80,
   },
   rightContainer: {

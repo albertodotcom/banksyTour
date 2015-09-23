@@ -21,6 +21,22 @@ let _artworks = [
       longitude: -0.1438842,
     },
   },
+  {
+    title: 'Shop Until You Drop',
+    img: 'https://upload.wikimedia.org/wikipedia/commons/thumb/7/7f/Shop_Until_You_Drop_by_Banksy.JPG/1280px-Shop_Until_You_Drop_by_Banksy.JPG',
+    location: {
+      latitude: 51.5104404,
+      longitude: -0.1438842,
+    },
+  },
+  {
+    title: 'Shop Until You Drop',
+    img: 'https://upload.wikimedia.org/wikipedia/commons/thumb/7/7f/Shop_Until_You_Drop_by_Banksy.JPG/1280px-Shop_Until_You_Drop_by_Banksy.JPG',
+    location: {
+      latitude: 51.5104404,
+      longitude: -0.1438842,
+    },
+  },
 ];
 
 class ArtworksStore extends BaseStore {
