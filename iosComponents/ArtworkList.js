@@ -31,9 +31,10 @@ let ArtworkList = React.createClass({
   },
 });
 
+let stylesConst = require('../common/constants/Style');
 let styles = StyleSheet.create({
   listView: {
-    backgroundColor: '#1B1E22',
+    backgroundColor: stylesConst.colors.bgColor,
   },
 });
 

@@ -27,42 +27,57 @@ let ArtworkDetails = React.createClass({
   render() {
     return (
       <View style={styles.container}>
+
+        <View style={styles.top}>
+          <Text style={styles.title}>{this.props.artwork.title}</Text>
+          <TouchableHighlight
+            underlayColor='transparent'
+            onPress={this._onPressButton}
+          >
+            <Text style={styles.backButton}>{'<'}</Text>
+          </TouchableHighlight>
+        </View>
+
         <ScrollView style={styles.details}>
           <Image
             source={{uri: this.props.artwork.img}}
             style={styles.thumbnail}
           />
           <View style={styles.rightContainer}>
-            <Text style={styles.title}>{this.props.artwork.title}</Text>
+            <Text>{this.props.artwork.title}</Text>
           </View>
         </ScrollView>
-        <View style={styles.top}>
-          <TouchableHighlight onPress={this._onPressButton}>
-            <Text>Back</Text>
-          </TouchableHighlight>
-        </View>
       </View>
     );
   },
 
 });
 
+let stylesConst = require('../common/constants/Style');
 let styles = StyleSheet.create({
   container: {
     flex: 1,
-    backgroundColor: '#FFFFFF',
+    backgroundColor: stylesConst.colors.bgColor,
   },
   top: {
-    flex: 1,
-    flexDirection: 'row',
-    justifyContent: 'center',
-    alignItems: 'center',
     height: 65,
-    // backgroundColor: 'rgba(255,255,255,0.5)',
-    // position: 'absolute',
-    // top: 0,
-    // left: 0,
-    // right: 0,
+    backgroundColor: stylesConst.colors.darkGrey,
+  },
+  title: {
+    flex: 1,
+    fontSize: 20,
+    textAlign: 'center',
+    color: '#FFFFFF',
+    backgroundColor: 'rgba(255,255,255,0.8)',
+    paddingTop: 25,
+  },
+  backButton: {
+    color: '#FFFFFF',
+    fontSize: 30,
+    position: 'absolute',
+    bottom: 0,
+    left: 0,
+    padding: 15,
   },
   details: {
     flex: 1,
@@ -76,10 +91,6 @@ let styles = StyleSheet.create({
     width: 53,
     height: 81,
   },
-  title: {
-    fontSize: 20,
-    textAlign: 'center',
-  }
 });
 
 module.exports = ArtworkDetails;

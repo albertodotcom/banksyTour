@@ -44,12 +44,13 @@ let ArtworkRowView = React.createClass({
 
 });
 
+let stylesConst = require('../common/constants/Style');
 let styles = StyleSheet.create({
   container: {
     flex: 1,
     flexDirection: 'column',
     alignItems: 'stretch',
-    backgroundColor: '#272B31',
+    backgroundColor: stylesConst.colors.darkGrey,
     marginBottom: 20,
   },
   description: {
