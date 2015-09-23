@@ -5,11 +5,15 @@ let {
   AppRegistry,
   StyleSheet,
   TabBarIOS,
+  Navigator,
+  View,
+  Text,
 } = React;
 
 let ArtworksStore = require('./common/stores/ArtworksStore');
-let ArtworkNavigator = require('./iosComponents/ArtworkNavigator');
+let ArtworkList = require('./iosComponents/ArtworkList');
 let ArtworkMap = require('./iosComponents/ArtworksMap');
+let ArtworkDetails = require('./iosComponents/ArtworkDetails');
 
 function getArtworks() {
   return ArtworksStore.getArtworks();
@@ -30,37 +34,57 @@ let BanskyTour = React.createClass({
     };
   },
 
+  renderScene(route, navigator) {
+    switch (route.id) {
+    case 'tab-view':
+      return (
+        <TabBarIOS navigator={navigator} >
+
+          <TabBarIOS.Item
+            title="Artworks"
+            systemIcon="more"
+            selected={this.state.selectedTab === 'list'}
+            onPress={() => {
+              this.setState({
+                selectedTab: 'list',
+              });
+            }}>
+            <ArtworkList artworks={this.state.artworks} navigator={navigator} />
+          </TabBarIOS.Item>
+
+          <TabBarIOS.Item
+            title="Map"
+            systemIcon="more"
+            selected={this.state.selectedTab === 'map'}
+            onPress={() => {
+              this.setState({
+                selectedTab: 'map',
+              });
+            }}>
+            <ArtworkMap artworks={this.state.artworks} navigator={navigator} />
+          </TabBarIOS.Item>
+
+        </TabBarIOS>
+      );
+
+    case 'artwork-details':
+      return (
+        <ArtworkDetails artwork={route.artwork} />
+      );
+
+    }
+  },
+
   render() {
     return (
-      <TabBarIOS
-        tintColor="white"
-        barTintColor="darkslateblue">
-
-        <TabBarIOS.Item
-          title="Artworks"
-          systemIcon="more"
-          selected={this.state.selectedTab === 'list'}
-          onPress={() => {
-            this.setState({
-              selectedTab: 'list',
-            });
-          }}>
-          <ArtworkNavigator artworks={this.state.artworks} />
-        </TabBarIOS.Item>
-
-        <TabBarIOS.Item
-          title="Map"
-          systemIcon="more"
-          selected={this.state.selectedTab === 'map'}
-          onPress={() => {
-            this.setState({
-              selectedTab: 'map',
-            });
-          }}>
-          <ArtworkMap artworks={this.state.artworks} />
-        </TabBarIOS.Item>
-
-      </TabBarIOS>
+      <Navigator
+        ref="navigator"
+        renderScene={this.renderScene}
+        initialRoute={{id: 'tab-view'}}
+        configureScene={() => {
+          return Navigator.SceneConfigs.FloatFromRight;
+        }}
+      />
     );
   },
 });

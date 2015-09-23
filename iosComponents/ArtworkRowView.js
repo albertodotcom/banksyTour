@@ -9,8 +9,6 @@ let {
   TouchableHighlight,
 } = React;
 
-let ArtworkDetails = require('./ArtworkDetails');
-
 let PropTypes = React.PropTypes;
 
 let ArtworkRowView = React.createClass({
@@ -39,11 +37,8 @@ let ArtworkRowView = React.createClass({
 
   _onPressButton(artwork) {
     this.props.navigator.push({
-      title: artwork.title,
-      component: ArtworkDetails,
-      passProps: {
-        artwork: artwork,
-      },
+      id: 'artwork-details',
+      artwork: artwork,
     });
   }
 

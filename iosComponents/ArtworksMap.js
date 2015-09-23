@@ -5,6 +5,8 @@ var {
   MapView,
   StyleSheet,
   View,
+  Text,
+  StatusBarIOS,
 } = React;
 
 var MapViewExample = React.createClass({
@@ -20,15 +22,25 @@ var MapViewExample = React.createClass({
     };
   },
 
+  _onPressButton(artwork) {
+    this.props.navigator.push({
+      id: 'artwork-details',
+      artwork: artwork,
+    });
+  },
+
   render() {
     let formatAnnotation = this.props.artworks.map((artwork) => {
       return {
         title: artwork.title,
         latitude: artwork.location.latitude,
         longitude: artwork.location.longitude,
-        hasRightCallout: true
+        hasRightCallout: true,
+        onRightCalloutPress: this._onPressButton.bind(this, artwork)
       };
     });
+
+    // StatusBarIOS.setHidden(true, 'slide');
 
     return (
       <View style={{flex: 1}}>
