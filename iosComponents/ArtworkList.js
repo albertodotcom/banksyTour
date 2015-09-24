@@ -4,6 +4,7 @@ let React = require('react-native');
 let {
   StyleSheet,
   ListView,
+  StatusBarIOS,
 } = React;
 
 let ArtworkRowView = require('./ArtworkRowView');
@@ -11,6 +12,8 @@ let ArtworkRowView = require('./ArtworkRowView');
 let ArtworkList = React.createClass({
 
   render() {
+    StatusBarIOS.setStyle('light-content');
+
     let ds = new ListView.DataSource({rowHasChanged: (r1, r2) => r1 !== r2});
     return (
       <ListView

@@ -76,8 +76,6 @@ let BanskyTour = React.createClass({
   },
 
   render() {
-    StatusBarIOS.setStyle('light-content');
-
     return (
       <Navigator
         ref="navigator"

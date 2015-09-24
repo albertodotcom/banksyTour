@@ -5,6 +5,7 @@ var {
   MapView,
   StyleSheet,
   View,
+  StatusBarIOS,
 } = React;
 
 var MapViewExample = React.createClass({
@@ -37,6 +38,8 @@ var MapViewExample = React.createClass({
         onRightCalloutPress: this._onPressButton.bind(this, artwork),
       };
     });
+
+    StatusBarIOS.setStyle('default');
 
     return (
       <View style={{flex: 1}}>
