@@ -40,8 +40,6 @@ var MapViewExample = React.createClass({
       };
     });
 
-    // StatusBarIOS.setHidden(true, 'slide');
-
     return (
       <View style={{flex: 1}}>
         <MapView

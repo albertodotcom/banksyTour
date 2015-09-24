@@ -28,25 +28,26 @@ let ArtworkDetails = React.createClass({
     return (
       <View style={styles.container}>
 
-        <View style={styles.top}>
-          <Text style={styles.title}>{this.props.artwork.title}</Text>
-          <TouchableHighlight
-            underlayColor='transparent'
-            onPress={this._onPressButton}
-          >
-            <Text style={styles.backButton}>{'<'}</Text>
-          </TouchableHighlight>
-        </View>
-
-        <ScrollView style={styles.details}>
+        <View style={styles.details}>
           <Image
             source={{uri: this.props.artwork.img}}
-            style={styles.thumbnail}
+            style={{
+              flex: 1,
+            }}
+            resizeMode='cover'
           />
           <View style={styles.rightContainer}>
             <Text>{this.props.artwork.title}</Text>
           </View>
-        </ScrollView>
+        </View>
+
+        <TouchableHighlight
+          underlayColor='transparent'
+          onPress={this._onPressButton}
+        >
+          <Text style={styles.backButton}>{'<'}</Text>
+        </TouchableHighlight>
+
       </View>
     );
   },
@@ -56,40 +57,26 @@ let ArtworkDetails = React.createClass({
 let stylesConst = require('../common/constants/Style');
 let styles = StyleSheet.create({
   container: {
-    flex: 1,
     backgroundColor: stylesConst.colors.bgColor,
-  },
-  top: {
-    height: 65,
-    backgroundColor: stylesConst.colors.darkGrey,
-  },
-  title: {
     flex: 1,
-    fontSize: 20,
-    textAlign: 'center',
-    color: '#FFFFFF',
-    backgroundColor: 'rgba(255,255,255,0.8)',
-    paddingTop: 25,
   },
   backButton: {
     color: '#FFFFFF',
     fontSize: 30,
-    position: 'absolute',
-    bottom: 0,
-    left: 0,
     padding: 15,
+    top: 0,
+    left: 0,
+    position: 'absolute',
+    backgroundColor: 'transparent',
   },
   details: {
     flex: 1,
-    flexDirection: 'column',
-    paddingTop: 80,
-  },
-  rightContainer: {
-    flex: 1,
-  },
-  thumbnail: {
-    width: 53,
-    height: 81,
+    alignItems: 'stretch',
+    position: 'absolute',
+    top: 0,
+    bottom: 0,
+    left: 0,
+    right: 0,
   },
 });
 
