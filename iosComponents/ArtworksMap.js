@@ -5,8 +5,6 @@ var {
   MapView,
   StyleSheet,
   View,
-  Text,
-  StatusBarIOS,
 } = React;
 
 var MapViewExample = React.createClass({
@@ -36,7 +34,7 @@ var MapViewExample = React.createClass({
         latitude: artwork.location.latitude,
         longitude: artwork.location.longitude,
         hasRightCallout: true,
-        onRightCalloutPress: this._onPressButton.bind(this, artwork)
+        onRightCalloutPress: this._onPressButton.bind(this, artwork),
       };
     });
 
@@ -57,7 +55,7 @@ var MapViewExample = React.createClass({
 var styles = StyleSheet.create({
   map: {
     flex: 1,
-  }
+  },
 });
 
 module.exports = MapViewExample;

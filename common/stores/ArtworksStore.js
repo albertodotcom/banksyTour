@@ -1,8 +1,8 @@
 'use strict';
 
-let AppDispatcher = require('../dispatcher/AppDispatcher');
+// let AppDispatcher = require('../dispatcher/AppDispatcher');
 let BaseStore = require('./BaseStore.js');
-let ArtworksConstants = require('../constants/ArtworksConstants');
+// let ArtworksConstants = require('../constants/ArtworksConstants');
 
 let _artworks = [
   {
@@ -44,7 +44,7 @@ class ArtworksStore extends BaseStore {
     return {
       loading: true,
       error: null,
-      data: _artworks
+      data: _artworks,
     };
   }
 }
@@ -52,8 +52,8 @@ class ArtworksStore extends BaseStore {
 let artworksStore = new ArtworksStore();
 
 // Register callback to handle all updates
-artworksStore.dispatchToken = AppDispatcher.register(function(payload) {
-  let action = payload.action;
-});
+// artworksStore.dispatchToken = AppDispatcher.register(function(payload) {
+//   let action = payload.action;
+// });
 
 module.exports = artworksStore;

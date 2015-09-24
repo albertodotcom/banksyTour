@@ -6,7 +6,6 @@ let {
   Text,
   View,
   Image,
-  ScrollView,
   TouchableHighlight,
 } = React;
 
@@ -17,7 +16,7 @@ let ArtworkDetails = React.createClass({
     artwork: PropTypes.shape({
       title: React.PropTypes.string.isRequired,
       img: React.PropTypes.string.isRequired,
-    }).isRequired
+    }).isRequired,
   },
 
   _onPressButton() {

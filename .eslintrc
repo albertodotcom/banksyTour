@@ -28,6 +28,7 @@
       2,
       "always"
     ],
+    "comma-dangle": [2, "always-multiline"],
     "react/jsx-boolean-value": 1,
     "react/jsx-quotes": 1,
     "react/jsx-no-undef": 1,
