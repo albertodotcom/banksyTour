@@ -84,6 +84,7 @@ let BanskyTour = React.createClass({
         ref="navigator"
         renderScene={this.renderScene}
         initialRoute={{id: 'tab-view'}}
+        style={{backgroundColor: stylesConst.colors.bgColor}}
         configureScene={() => {
           return Navigator.SceneConfigs.FloatFromRight;
         }}
