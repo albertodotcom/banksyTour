@@ -12,6 +12,7 @@ let ArtworksStore = require('./common/stores/ArtworksStore');
 let ArtworkList = require('./iosComponents/ArtworkList');
 let ArtworkMap = require('./iosComponents/ArtworksMap');
 let ArtworkDetails = require('./iosComponents/ArtworkDetails');
+let stylesConst = require('./common/constants/Style');
 
 function getArtworks() {
   return ArtworksStore.getArtworks();
@@ -37,12 +38,14 @@ let BanskyTour = React.createClass({
     case 'tab-view':
       return (
         <TabBarIOS
-          translucent={true}
-          navigator={navigator}>
+          translucent={false}
+          navigator={navigator}
+          barTintColor={stylesConst.colors.darkGrey}
+          tintColor='#FFFFFF'>
 
           <TabBarIOS.Item
             title="Artworks"
-            systemIcon="bookmarks"
+            icon={require('image!list')}
             selected={this.state.selectedTab === 'list'}
             onPress={() => {
               this.setState({
@@ -54,7 +57,7 @@ let BanskyTour = React.createClass({
 
           <TabBarIOS.Item
             title="Map"
-            systemIcon="more"
+            icon={require('image!map')}
             selected={this.state.selectedTab === 'map'}
             onPress={() => {
               this.setState({
